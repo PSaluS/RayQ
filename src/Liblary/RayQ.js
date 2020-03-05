@@ -1,10 +1,12 @@
 import Attribute from "./attributes.js";
 import Iteration from "./iteration.js";
+import Content from "./content.js";
+import Events from "./events.js"
 import {mixin} from "../Utils/mixin.js";
 
 const _NODES = new WeakMap();
 
-export default class RayQ extends mixin(Attribute, Iteration)
+export default class RayQ extends mixin(Attribute, Iteration, Content, Events)
 {
 
     constructor(nodes) {

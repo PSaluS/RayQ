@@ -2,9 +2,14 @@ var path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/main.js',
+  entry: {
+    RayQ: './src/main.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: '[name].js',
+    library: 'RayQ',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   }
 };

@@ -1,6 +1,8 @@
 import RayQ from "./Liblary/RayQ.js";
 import {isSelector, isHTMLTag, isDOMNode } from "./Utils/check.js";
 import {findElements, createElement } from "./Utils/element.js";
+import Ajax from "./Liblary/ajax.js";
+import {staticMixin} from "./Utils/mixin.js";
 
 function init (param) {
 
@@ -18,22 +20,18 @@ function init (param) {
     return RayQ.create(nodes);
 }
 
-function use$(swi) {
+function use$() {
     try{
     const w$= window.$;
     window.$ = init;
-    if(name !== undefined) {
-        window.swi = w$;
-        return true;
-    }
-    else {
         return w$;
-    }
     }
     catch{
         return false;
     }
 }
+
+staticMixin(init, Ajax);
 
 window.RQ = init;
 window.$RQ = use$;

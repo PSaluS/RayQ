@@ -5,7 +5,6 @@ export function findElements(selector) {
 export function createElement(htmlTag) {
 
     let result = (/<(.+)>/).exec(htmlTag);
-
     if(result && result[1]) {
         return document.createElement(result[1]);
     } else {
